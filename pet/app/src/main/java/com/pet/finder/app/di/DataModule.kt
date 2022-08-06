@@ -2,10 +2,9 @@ package com.pet.finder.app.di
 
 import android.content.Context
 import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSource
-import com.pet.finder.app.api.dataSource.RetrofitSessionDataSource
-import com.pet.finder.app.data.SessionStorage
+import com.pet.finder.app.api.session.SessionStorage
+import com.pet.finder.app.api.session.SessionStorageImpl
 import com.pet.finder.app.data.repository.AnimalRepositoryImpl
-import com.pet.finder.app.data.storage.sharedprefs.SessionStorageImpl
 import com.pet.finder.app.domain.AnimalRepository
 import dagger.Module
 import dagger.Provides
@@ -14,12 +13,10 @@ import dagger.Provides
 class DataModule {
     @Provides
     fun provideSessionStorage(
-        context: Context,
-        retrofitSessionDataSource: RetrofitSessionDataSource
+        context: Context
     ): SessionStorage {
         return SessionStorageImpl(
-            context = context,
-            retrofitSessionDataSource = retrofitSessionDataSource
+            context = context
         )
     }
 
