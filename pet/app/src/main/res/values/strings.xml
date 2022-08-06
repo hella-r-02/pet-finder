@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">pet_finder</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_title">Today is a great day to find a new friend!</string>
+    <string name="pet_name">pet name</string>
+    <string name="pet_age">Age</string>
+    <string name="location">Location</string>
+    <string name="female">Female</string>
+</resources>
