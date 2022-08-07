@@ -16,7 +16,7 @@ class RetrofitAnimalDataSourceImpl(
                 name = animal.name,
                 age = animal.age,
                 gender = animal.gender,
-                location = address.city + ", " + address.country + ", " + address.state,
+                location = address.city + ", " + address.state+", "+ address.country,
                 photo = ImageAppender().buildUrl(animal.photos)
             )
         }

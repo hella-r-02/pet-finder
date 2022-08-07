@@ -44,5 +44,6 @@ class AnimalsListFragment : Fragment() {
         val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
         binding.rvAnimals.layoutManager = layoutManager
         binding.rvAnimals.adapter = adapter
+        binding.rvAnimals.isNestedScrollingEnabled = false
     }
 }

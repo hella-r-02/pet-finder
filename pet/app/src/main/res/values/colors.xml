@@ -14,4 +14,7 @@
     <color name="female_text_color">#FF7070</color>
     <color name="male_background">#99AAC7FF</color>
     <color name="male_text_color">#4E8AFF</color>
+    <color name="adopt_button_background">#920B0B</color>
+    <color name="details_item_text_color">#535353</color>
+    <color name="organization_location_text_color">#6C6C6C</color>
 </resources>

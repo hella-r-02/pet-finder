@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">pet_finder</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_title">Today is a great day to find a new friend!</string>
     <string name="pet_name">pet name</string>
     <string name="pet_age">Age</string>
     <string name="location">Location</string>
     <string name="female">Female</string>
+    <string name="adopt">Adopt</string>
+    <string name="about_me_title">About me</string>
+    <string name="test_about_me">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce felis nulla, malesuada a mollis et, placerat vel velit. Aenean velit orci, varius nec faucibus lobortis, vehicula eu mauris. Phasellus non risus luctus, congue ligula sed, blandit tortor. Aenean pellentesque ante ullamcorper risus congue, et lobortis leo malesuada. Quisque aliquam enim at tellus ullamcorper tempus. Mauris a tincidunt risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur mollis nibh ut mi tempus pellentesque. Maecenas eget luctus lorem. Maecenas vehicula sed dui quis placerat. Etiam laoreet, purus non cursus dapibus, turpis nisi accumsan dui, non tincidunt purus elit ac justo. Aliquam at tempus augue. Cras interdum malesuada congue.</string>
+    <string name="title_details">Details</string>
+    <string name="breed_title">breed:</string>
+    <string name="organization_name">Organization name</string>
 </resources>

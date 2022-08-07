@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.animalDetails.AnimalDetailsFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_adopt"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/adopt_button_background"
+        android:elevation="6dp"
+        android:paddingStart="64dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="64dp"
+        android:paddingBottom="10dp"
+        android:text="@string/adopt"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/button_adopt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/animal_details_main_margin" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/animal_list_main_margin" />
+
+            <ImageView
+                android:id="@+id/iv_animal_image"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:background="@color/white"
+                android:src="@drawable/ic_animal_placeholder"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/animal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/animal_details_margin_name"
+                android:text="@string/pet_name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/iv_animal_image" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                style="@style/style_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/female"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/gl_end"
+                app:layout_constraintTop_toTopOf="@id/animal_name" />
+
+            <TextView
+                android:id="@+id/tv_animal_age"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="@string/pet_age"
+                android:textColor="@color/pet_age_text_color"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/animal_name" />
+
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_location"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_animal_age" />
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="2dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/iv_location"
+                app:layout_constraintStart_toEndOf="@id/iv_location"
+                app:layout_constraintTop_toTopOf="@id/iv_location"
+                tools:text="@string/location" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tv_location,iv_location" />
+
+            <TextView
+                android:id="@+id/tv_about_me_title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/about_me_title"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/barrier_location" />
+
+            <TextView
+                android:id="@+id/tv_about_me"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="@string/test_about_me"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@id/gl_end"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_about_me_title" />
+
+            <TextView
+                android:id="@+id/tv_details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="22dp"
+                android:text="@string/title_details"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_about_me" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/tv_details_title" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/rv_details" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/view_organization"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/organization_background"
+                app:layout_constraintEnd_toStartOf="@id/gl_end"
+                app:layout_constraintStart_toEndOf="@id/gl_start"
+                app:layout_constraintTop_toBottomOf="@id/rv_tags">
+
+                <ImageView
+                    android:id="@+id/iv_organization"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    app:layout_constraintBottom_toBottomOf="@id/view_organization"
+                    app:layout_constraintStart_toStartOf="@id/view_organization"
+                    app:layout_constraintTop_toTopOf="@id/view_organization"
+                    tools:ignore="ContentDescription"
+                    tools:src="@drawable/organization_title" />
+
+                <TextView
+                    android:id="@+id/tv_organization_name"
+                    style="@style/style_organization_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="@string/organization_name"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@id/view_organization"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/iv_organization"
+                    app:layout_constraintTop_toTopOf="@id/iv_organization" />
+
+                <TextView
+                    android:id="@+id/tv_organization_location"
+                    style="@style/style_organization_information"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/location"
+                    android:textColor="@color/organization_location_text_color"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/view_organization"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/iv_organization"
+                    app:layout_constraintTop_toBottomOf="@id/tv_organization_name" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
