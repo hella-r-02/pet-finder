@@ -15,10 +15,9 @@ class TokenAuthenticator @Inject constructor(
 ) :
     Authenticator {
 
-    override fun authenticate(route: Route?, response: Response): Request? {
-        var token = sessionStorage.getToken()
+    override fun authenticate(route: Route?, response: Response): Request {
         synchronized(this) {
-            token = getUpdatedToken()
+            val token = getUpdatedToken()
             return response.request.newBuilder()
                 .header("Authorization", token)
                 .build()

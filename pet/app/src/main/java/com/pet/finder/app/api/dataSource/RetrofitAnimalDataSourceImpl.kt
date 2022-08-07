@@ -14,7 +14,6 @@ class RetrofitAnimalDataSourceImpl(
             Animal(
                 id = animal.id,
                 name = animal.name,
-                size = animal.size,
                 age = animal.age,
                 gender = animal.gender,
                 location = address.city + ", " + address.country + ", " + address.state,

@@ -49,12 +49,22 @@ class AnimalsListAdapter : ListAdapter<Animal, AnimalsListAdapter.DataViewHolder
                 "Male" -> {
                     animalGender.background =
                         ContextCompat.getDrawable(context, R.drawable.male_background)
-                    animalGender.setTextColor(ContextCompat.getColor(context,R.color.male_text_color))
+                    animalGender.setTextColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.male_text_color
+                        )
+                    )
                 }
                 "Female" -> {
                     animalGender.background =
                         ContextCompat.getDrawable(context, R.drawable.female_background)
-                    animalGender.setTextColor(ContextCompat.getColor(context,R.color.female_text_color))
+                    animalGender.setTextColor(
+                        ContextCompat.getColor(
+                            context,
+                            R.color.female_text_color
+                        )
+                    )
                 }
             }
             animalGender.text = gender

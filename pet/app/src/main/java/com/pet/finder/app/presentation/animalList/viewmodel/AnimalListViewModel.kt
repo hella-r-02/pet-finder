@@ -15,7 +15,6 @@ class AnimalListViewModel(private val animalRepository: AnimalRepository) :
     fun loadAnimals() {
         viewModelScope.launch {
             val animals = animalRepository.getAnimals()
-            animals.forEach { println(it) }
             _mutableLiveDataAnimals.value = animals
         }
     }
