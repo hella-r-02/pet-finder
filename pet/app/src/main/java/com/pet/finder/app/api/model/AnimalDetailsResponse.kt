@@ -7,6 +7,8 @@ import kotlinx.serialization.Serializable
 class AnimalDetailsResponse(
     @SerializedName("id")
     val id: Int,
+    @SerializedName("organization_id")
+    val organizationId: String?,
     @SerializedName("name")
     val name: String,
     @SerializedName("description")
@@ -20,7 +22,7 @@ class AnimalDetailsResponse(
     @SerializedName("gender")
     val gender: String,
     @SerializedName("contact")
-    val contact: OrganizationResponse,
+    val contact: ContactDetailsResponse,
     @SerializedName("tags")
     val tags: List<String>?,
     @SerializedName("size")

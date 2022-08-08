@@ -10,5 +10,6 @@ class AnimalDetails(
     val contact: Contact?,
     val photos: String?,
     val tags: List<String>?,
-    val details: List<Details>
+    val details: List<Details>,
+    val organization: Organization?
 )

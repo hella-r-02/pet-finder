@@ -183,9 +183,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view_organization"
-                android:layout_width="18dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="18dp"
                 android:background="@drawable/organization_background"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
                 app:layout_constraintTop_toBottomOf="@id/rv_tags">

@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class OrganizationResponse(
-    @SerializedName("address")
-    val address: AddressResponse,
-    @SerializedName("phone")
-    val phone: String?,
-    @SerializedName("email")
-    val email: String?
+    @SerializedName("id")
+    val id: String,
+    @SerializedName("name")
+    val name: String,
+    @SerializedName("photos")
+    val photos: List<PhotoResponse>?,
 )

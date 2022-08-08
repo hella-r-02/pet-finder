@@ -4,10 +4,12 @@ import com.pet.finder.app.api.ImageAppender
 import com.pet.finder.app.api.model.AnimalDetailsResponse
 import com.pet.finder.app.api.model.BreedsResponse
 import com.pet.finder.app.api.servcice.AnimalService
+import com.pet.finder.app.api.servcice.OrganizationService
 import com.pet.finder.app.data.model.*
 
 class RetrofitAnimalDataSourceImpl(
-    private val animalService: AnimalService
+    private val animalService: AnimalService,
+    private val organizationService: OrganizationService
 ) : RetrofitAnimalDataSource {
     override suspend fun getAnimalsList(): List<Animal> {
         val animalsResponse = animalService.getAnimals()
@@ -31,6 +33,16 @@ class RetrofitAnimalDataSourceImpl(
             Details(key = "size", value = animalResponse.size),
             Details(key = "breed", value = parseBreeds(breeds = animalResponse.breeds))
         )
+        var organization: Organization? = null
+        if (animalResponse.organizationId != null) {
+            val organizationResponse =
+                organizationService.getOrganization(animalResponse.organizationId)
+            organization = Organization(
+                id = organizationResponse.organization.id,
+                name = organizationResponse.organization.name,
+                photo = ImageAppender().buildUrl(organizationResponse.organization.photos)
+            )
+        }
         return AnimalDetails(
             id = animalResponse.id,
             name = animalResponse.name,
@@ -44,7 +56,8 @@ class RetrofitAnimalDataSourceImpl(
                 email = animalResponse.contact.email,
             ),
             photos = ImageAppender().buildUrl(animalResponse.photos),
-            tags = animalResponse.tags
+            tags = animalResponse.tags,
+            organization = organization
         )
     }
 

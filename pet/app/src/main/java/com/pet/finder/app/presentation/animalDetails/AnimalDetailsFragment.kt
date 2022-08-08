@@ -123,5 +123,20 @@ class AnimalDetailsFragment : Fragment() {
                 )
             }
         }
+        loadOrganizationInformation(animal)
+    }
+
+    private fun loadOrganizationInformation(animal: AnimalDetails) {
+        if (animal.organization != null) {
+            Glide.with(requireContext())
+                .load(animal.organization.photo)
+                .placeholder(R.drawable.organization_title)
+                .into(binding.ivOrganization)
+            binding.tvOrganizationName.text = animal.organization.name
+            binding.tvOrganizationLocation.text = animal.location
+        } else {
+            println("kfkfkf")
+            binding.viewOrganization.visibility = View.GONE
+        }
     }
 }

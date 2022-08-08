@@ -4,6 +4,7 @@ import com.pet.finder.app.api.TokenAuthenticator
 import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSource
 import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSourceImpl
 import com.pet.finder.app.api.servcice.AnimalService
+import com.pet.finder.app.api.servcice.OrganizationService
 import com.pet.finder.app.api.servcice.SessionService
 import com.pet.finder.app.api.utils.BASE_URL
 import dagger.Module
@@ -54,9 +55,17 @@ class NetworkModule {
 
     @Singleton
     @Provides
+    fun provideOrganizationApi(retrofit: Retrofit): OrganizationService =
+        retrofit.create(OrganizationService::class.java)
+
+    @Singleton
+    @Provides
     fun provideRetrofitAnimalDataSource(
-        animalService: AnimalService
+        animalService: AnimalService, organizationService: OrganizationService
     ): RetrofitAnimalDataSource {
-        return RetrofitAnimalDataSourceImpl(animalService)
+        return RetrofitAnimalDataSourceImpl(
+            animalService = animalService,
+            organizationService = organizationService
+        )
     }
 }
