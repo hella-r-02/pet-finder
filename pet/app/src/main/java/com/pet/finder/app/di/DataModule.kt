@@ -11,14 +11,14 @@ import dagger.Provides
 
 @Module
 class DataModule {
-    @Provides
-    fun provideSessionStorage(
-        context: Context
-    ): SessionStorage {
-        return SessionStorageImpl(
-            context = context
-        )
-    }
+//    @Provides
+//    fun provideSessionStorage(
+//        context: Context
+//    ): SessionStorage {
+//        return SessionStorageImpl(
+//            context = context
+//        )
+//    }
 
     @Provides
     fun provideAnimalRepository(retrofitAnimalDataSource: RetrofitAnimalDataSource): AnimalRepository {

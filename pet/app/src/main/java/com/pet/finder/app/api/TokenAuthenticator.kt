@@ -1,7 +1,6 @@
 package com.pet.finder.app.api
 
 import com.pet.finder.app.api.servcice.SessionService
-import com.pet.finder.app.api.session.SessionStorage
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
@@ -10,24 +9,17 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class TokenAuthenticator @Inject constructor(
-    private val sessionService: Provider<SessionService>,
-    private val sessionStorage: SessionStorage
-) :
-    Authenticator {
-
+    private val sessionService: Provider<SessionService>
+) : Authenticator {
     override fun authenticate(route: Route?, response: Response): Request {
-        synchronized(this) {
-            val token = getUpdatedToken()
-            return response.request.newBuilder()
-                .header("Authorization", token)
-                .build()
-        }
+        val token = getUpdatedToken()
+        return response.request.newBuilder()
+            .header("Authorization", token)
+            .build()
     }
 
     private fun getUpdatedToken(): String {
         val tokenResponse = sessionService.get().updateToken().execute().body()
-        val newToken = tokenResponse?.tokenType + " " + tokenResponse?.accessToken
-        sessionStorage.refreshToken(newToken)
-        return newToken
+        return tokenResponse?.tokenType + " " + tokenResponse?.accessToken
     }
 }
