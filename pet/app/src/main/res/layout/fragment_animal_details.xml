@@ -30,7 +30,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="32dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/button_adopt"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -64,7 +64,7 @@
                 tools:ignore="ContentDescription" />
 
             <TextView
-                android:id="@+id/animal_name"
+                android:id="@+id/tv_animal_name"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_marginTop="@dimen/animal_details_margin_name"
@@ -83,7 +83,7 @@
                 android:text="@string/female"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toStartOf="@id/gl_end"
-                app:layout_constraintTop_toTopOf="@id/animal_name" />
+                app:layout_constraintTop_toTopOf="@id/tv_animal_name" />
 
             <TextView
                 android:id="@+id/tv_animal_age"
@@ -92,7 +92,7 @@
                 android:text="@string/pet_age"
                 android:textColor="@color/pet_age_text_color"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
-                app:layout_constraintTop_toBottomOf="@id/animal_name" />
+                app:layout_constraintTop_toBottomOf="@id/tv_animal_name" />
 
             <ImageView
                 android:id="@+id/iv_location"
@@ -139,7 +139,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="@string/test_about_me"
+                tools:text="@string/test_about_me"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toStartOf="@id/gl_end"
@@ -165,15 +165,20 @@
                 android:layout_height="0dp"
                 android:orientation="vertical"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
-                app:layout_constraintTop_toBottomOf="@id/tv_details_title" />
+                app:layout_constraintTop_toBottomOf="@id/tv_details_title"
+                tools:itemCount="2"
+                tools:listitem="@layout/view_holder_details" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tags"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
+                android:layout_marginTop="18dp"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
-                app:layout_constraintTop_toBottomOf="@id/rv_details" />
+                app:layout_constraintTop_toBottomOf="@id/rv_details"
+                tools:itemCount="3"
+                tools:listitem="@layout/view_holder_tag" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view_organization"
@@ -191,11 +196,11 @@
                     android:layout_marginStart="6dp"
                     android:layout_marginTop="6dp"
                     android:layout_marginBottom="6dp"
+                    android:src="@drawable/organization_title"
                     app:layout_constraintBottom_toBottomOf="@id/view_organization"
                     app:layout_constraintStart_toStartOf="@id/view_organization"
                     app:layout_constraintTop_toTopOf="@id/view_organization"
-                    tools:ignore="ContentDescription"
-                    tools:src="@drawable/organization_title" />
+                    tools:ignore="ContentDescription" />
 
                 <TextView
                     android:id="@+id/tv_organization_name"
@@ -226,6 +231,11 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_organization_name" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_organization" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

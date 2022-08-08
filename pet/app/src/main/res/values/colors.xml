@@ -17,4 +17,5 @@
     <color name="adopt_button_background">#920B0B</color>
     <color name="details_item_text_color">#535353</color>
     <color name="organization_location_text_color">#6C6C6C</color>
+    <color name="tag_background">#ADE2FF</color>
 </resources>

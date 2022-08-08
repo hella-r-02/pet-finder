@@ -11,4 +11,7 @@
     <string name="title_details">Details</string>
     <string name="breed_title">breed:</string>
     <string name="organization_name">Organization name</string>
+    <string name="detail_item_title">detail item title:</string>
+    <string name="detail_item">detail item</string>
+    <string name="tag">tag</string>
 </resources>

@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 class AddressResponse(
-    @SerializedName("city") val city: String,
-    @SerializedName("state") val state: String,
-    @SerializedName("country") val country: String
+    @SerializedName("city") val city: String?,
+    @SerializedName("state") val state: String?,
+    @SerializedName("country") val country: String?
 )

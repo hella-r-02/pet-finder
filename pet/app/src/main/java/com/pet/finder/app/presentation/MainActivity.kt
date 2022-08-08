@@ -5,16 +5,22 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.pet.finder.app.R
 import com.pet.finder.app.app.App
+import com.pet.finder.app.data.model.Animal
+import com.pet.finder.app.presentation.animalDetails.AnimalDetailsFragment
+import com.pet.finder.app.presentation.animalDetails.viewmodel.AnimalDetailsViewModel
+import com.pet.finder.app.presentation.animalDetails.viewmodel.AnimalDetailsViewModelFactory
 import com.pet.finder.app.presentation.animalList.AnimalsListFragment
 import com.pet.finder.app.presentation.animalList.viewmodel.AnimalListViewModel
 import com.pet.finder.app.presentation.animalList.viewmodel.AnimalListViewModelFactory
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AnimalsListFragment.AnimalsListItemClickListener {
     @Inject
-    lateinit var vmFactory: AnimalListViewModelFactory
+    lateinit var animalListViewModelFactory: AnimalListViewModelFactory
 
-    private lateinit var vm: AnimalListViewModel
+    @Inject
+    lateinit var animalDetailsViewModelFactory: AnimalDetailsViewModelFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -31,5 +37,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getAnimalListViewModel(): AnimalListViewModel =
-        ViewModelProvider(this, vmFactory).get(AnimalListViewModel::class.java)
+        ViewModelProvider(this, animalListViewModelFactory).get(AnimalListViewModel::class.java)
+
+    fun getAnimalDetailsViewModel(): AnimalDetailsViewModel =
+        ViewModelProvider(
+            this,
+            animalDetailsViewModelFactory
+        ).get(AnimalDetailsViewModel::class.java)
+
+    override fun onAnimalSelected(animal: Animal) {
+        println("fkj")
+        val bundle = Bundle()
+        bundle.putInt("animal_id", animal.id)
+        val fragment = AnimalDetailsFragment()
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frame_layout_container, fragment)
+            .addToBackStack(null)
+            .commit()
+    }
 }
