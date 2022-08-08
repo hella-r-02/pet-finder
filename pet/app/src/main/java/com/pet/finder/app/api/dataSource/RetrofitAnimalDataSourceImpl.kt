@@ -2,11 +2,9 @@ package com.pet.finder.app.api.dataSource
 
 import com.pet.finder.app.api.ImageAppender
 import com.pet.finder.app.api.model.AnimalDetailsResponse
+import com.pet.finder.app.api.model.BreedsResponse
 import com.pet.finder.app.api.servcice.AnimalService
-import com.pet.finder.app.data.model.Animal
-import com.pet.finder.app.data.model.AnimalDetails
-import com.pet.finder.app.data.model.Breed
-import com.pet.finder.app.data.model.Contact
+import com.pet.finder.app.data.model.*
 
 class RetrofitAnimalDataSourceImpl(
     private val animalService: AnimalService
@@ -28,18 +26,16 @@ class RetrofitAnimalDataSourceImpl(
 
     override suspend fun getAnimal(id: Int): AnimalDetails {
         val animalResponse: AnimalDetailsResponse = animalService.getAnimalById(id).animal
-        val breeds = animalResponse.breeds
         val address = animalResponse.contact.address
+        val detailsResponse = listOf(
+            Details(key = "size", value = animalResponse.size),
+            Details(key = "breed", value = parseBreeds(breeds = animalResponse.breeds))
+        )
         return AnimalDetails(
             id = animalResponse.id,
             name = animalResponse.name,
             description = animalResponse.description,
-            breeds = Breed(
-                primary = breeds.primary,
-                secondary = breeds.secondary,
-                mixed = breeds.mixed,
-                unknown = breeds.unknown
-            ),
+            details = detailsResponse,
             location = address.city + ", " + address.state + ", " + address.country,
             age = animalResponse.age,
             gender = animalResponse.gender,
@@ -50,5 +46,17 @@ class RetrofitAnimalDataSourceImpl(
             photos = ImageAppender().buildUrl(animalResponse.photos),
             tags = animalResponse.tags
         )
+    }
+
+    private fun parseBreeds(breeds: BreedsResponse): String {
+        var result = ""
+        if (breeds.primary != null) {
+            result += breeds.primary
+            if (breeds.secondary != null) {
+                result += " x ${breeds.secondary}"
+            }
+            return result
+        }
+        return "unknown"
     }
 }

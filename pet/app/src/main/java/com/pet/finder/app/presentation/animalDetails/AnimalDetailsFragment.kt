@@ -7,18 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pet.finder.app.R
 import com.pet.finder.app.data.model.AnimalDetails
 import com.pet.finder.app.databinding.FragmentAnimalDetailsBinding
 import com.pet.finder.app.presentation.MainActivity
+import com.pet.finder.app.presentation.animalDetails.adapter.details.DetailsAdapter
+import com.pet.finder.app.presentation.animalDetails.adapter.tags.TagsAdapter
 import com.pet.finder.app.presentation.animalDetails.viewmodel.AnimalDetailsViewModel
 
 class AnimalDetailsFragment : Fragment() {
     private lateinit var animalDetailsViewModel: AnimalDetailsViewModel
     private var animalId: Int? = null
-    private lateinit var adapter: DetailsAdapter
+
+    private lateinit var detailsAdapter: DetailsAdapter
+    private lateinit var tagsAdapter: TagsAdapter
     private lateinit var binding: FragmentAnimalDetailsBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         animalDetailsViewModel = (activity as MainActivity).getAnimalDetailsViewModel()
@@ -42,6 +49,24 @@ class AnimalDetailsFragment : Fragment() {
         animalDetailsViewModel.loadAnimal(animalId!!)
     }
 
+    private fun setAdapterForDetailsRecyclerView(animal: AnimalDetails) {
+        detailsAdapter = DetailsAdapter()
+        detailsAdapter.submitList(animal.details)
+        val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
+        binding.rvDetails.layoutManager = layoutManager
+        binding.rvDetails.adapter = detailsAdapter
+        binding.rvDetails.isNestedScrollingEnabled = false
+    }
+
+    private fun setAdapterForTagsRecyclerView(animal: AnimalDetails) {
+        tagsAdapter = TagsAdapter()
+        tagsAdapter.submitList(animal.tags)
+        val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.HORIZONTAL, false)
+        binding.rvTags.layoutManager = layoutManager
+        binding.rvTags.adapter = tagsAdapter
+        binding.rvTags.isNestedScrollingEnabled = false
+    }
+
     private fun setState(state: AnimalState) {
         when (state) {
             is AnimalState.DefaultState -> state.animal?.let { loadData(it) }
@@ -54,6 +79,8 @@ class AnimalDetailsFragment : Fragment() {
     }
 
     private fun loadData(animal: AnimalDetails) {
+        setAdapterForDetailsRecyclerView(animal)
+        setAdapterForTagsRecyclerView(animal)
         Glide.with(requireContext())
             .load(animal.photos)
             .placeholder(R.drawable.ic_animal_placeholder)

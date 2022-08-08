@@ -43,8 +43,8 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideSessionApi(retrofit: Retrofit): SessionService {
-        val sessionService = retrofit.create(SessionService::class.java)
-        return sessionService
+        return retrofit.create(SessionService::class.java)
+
     }
 
     @Singleton

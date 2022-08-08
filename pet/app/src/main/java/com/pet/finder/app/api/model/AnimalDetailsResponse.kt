@@ -22,5 +22,7 @@ class AnimalDetailsResponse(
     @SerializedName("contact")
     val contact: OrganizationResponse,
     @SerializedName("tags")
-    val tags: List<String>?
+    val tags: List<String>?,
+    @SerializedName("size")
+    val size: String
 )

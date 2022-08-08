@@ -28,7 +28,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="32dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +100,8 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/ic_location"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
-                app:layout_constraintTop_toBottomOf="@id/tv_animal_age" />
+                app:layout_constraintTop_toBottomOf="@id/tv_animal_age"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tv_location"
@@ -139,13 +139,13 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                tools:text="@string/test_about_me"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toStartOf="@id/gl_end"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
-                app:layout_constraintTop_toBottomOf="@id/tv_about_me_title" />
+                app:layout_constraintTop_toBottomOf="@id/tv_about_me_title"
+                tools:text="@string/test_about_me" />
 
             <TextView
                 android:id="@+id/tv_details_title"
@@ -171,10 +171,11 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_tags"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="18dp"
-                android:orientation="horizontal"
+                app:layout_constraintEnd_toStartOf="@id/gl_end"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
                 app:layout_constraintTop_toBottomOf="@id/rv_details"
                 tools:itemCount="3"
@@ -182,10 +183,10 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view_organization"
-                android:layout_width="0dp"
+                android:layout_width="18dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:background="@drawable/organization_background"
-                app:layout_constraintEnd_toStartOf="@id/gl_end"
                 app:layout_constraintStart_toEndOf="@id/gl_start"
                 app:layout_constraintTop_toBottomOf="@id/rv_tags">
 
@@ -233,7 +234,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="78dp"
+                android:layout_height="90dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/view_organization" />
         </androidx.constraintlayout.widget.ConstraintLayout>
