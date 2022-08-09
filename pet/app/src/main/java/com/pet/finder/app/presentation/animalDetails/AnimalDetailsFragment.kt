@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pet.finder.app.R
 import com.pet.finder.app.data.model.AnimalDetails
+import com.pet.finder.app.databinding.AnimalDetailsBottomSheetBinding
+import com.pet.finder.app.databinding.AnimalDetailsMainBinding
 import com.pet.finder.app.databinding.FragmentAnimalDetailsBinding
 import com.pet.finder.app.presentation.MainActivity
 import com.pet.finder.app.presentation.animalDetails.adapter.details.DetailsAdapter
@@ -25,10 +27,13 @@ class AnimalDetailsFragment : Fragment() {
     private lateinit var detailsAdapter: DetailsAdapter
     private lateinit var tagsAdapter: TagsAdapter
     private lateinit var binding: FragmentAnimalDetailsBinding
+    private lateinit var mainBinding: AnimalDetailsMainBinding
+    private lateinit var bottomSheetBinding: AnimalDetailsBottomSheetBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         animalDetailsViewModel = (activity as MainActivity).getAnimalDetailsViewModel()
+        //      binding = FragmentAnimalDetailsBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -43,6 +48,8 @@ class AnimalDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentAnimalDetailsBinding.bind(view)
+        mainBinding = binding.main
+        bottomSheetBinding = binding.bottomSheet
         animalDetailsViewModel.liveDataAnimal.observe(
             this.viewLifecycleOwner, this::setState
         )
@@ -53,18 +60,18 @@ class AnimalDetailsFragment : Fragment() {
         detailsAdapter = DetailsAdapter()
         detailsAdapter.submitList(animal.details)
         val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
-        binding.rvDetails.layoutManager = layoutManager
-        binding.rvDetails.adapter = detailsAdapter
-        binding.rvDetails.isNestedScrollingEnabled = false
+        bottomSheetBinding.rvDetails.layoutManager = layoutManager
+        bottomSheetBinding.rvDetails.adapter = detailsAdapter
+        bottomSheetBinding.rvDetails.isNestedScrollingEnabled = false
     }
 
     private fun setAdapterForTagsRecyclerView(animal: AnimalDetails) {
         tagsAdapter = TagsAdapter()
         tagsAdapter.submitList(animal.tags)
         val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.HORIZONTAL, false)
-        binding.rvTags.layoutManager = layoutManager
-        binding.rvTags.adapter = tagsAdapter
-        binding.rvTags.isNestedScrollingEnabled = false
+        bottomSheetBinding.rvTags.layoutManager = layoutManager
+        bottomSheetBinding.rvTags.adapter = tagsAdapter
+        bottomSheetBinding.rvTags.isNestedScrollingEnabled = false
     }
 
     private fun setState(state: AnimalState) {
@@ -72,7 +79,7 @@ class AnimalDetailsFragment : Fragment() {
             is AnimalState.DefaultState -> state.animal?.let { loadData(it) }
             is AnimalState.ErrorState -> Toast.makeText(
                 requireContext(),
-                "Movie loading error",
+                "Animal loading error",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -84,25 +91,25 @@ class AnimalDetailsFragment : Fragment() {
         Glide.with(requireContext())
             .load(animal.photos)
             .placeholder(R.drawable.ic_animal_placeholder)
-            .into(binding.ivAnimalImage)
-        binding.tvAnimalName.text = animal.name
-        binding.tvAnimalAge.text = animal.age
-        binding.tvLocation.text = animal.location
+            .into(mainBinding.ivAnimalImage)
+        bottomSheetBinding.tvAnimalName.text = animal.name
+        bottomSheetBinding.tvAnimalAge.text = animal.age
+        bottomSheetBinding.tvLocation.text = animal.location
         if (animal.description == null || animal.description.isEmpty()) {
-            binding.tvAboutMeTitle.visibility = View.GONE
-            binding.tvAboutMe.visibility = View.GONE
+            bottomSheetBinding.tvAboutMeTitle.visibility = View.GONE
+            bottomSheetBinding.tvAboutMe.visibility = View.GONE
         } else {
-            binding.tvAboutMe.text = animal.description
+            bottomSheetBinding.tvAboutMe.text = animal.description
         }
-        binding.tvGender.text = animal.gender
+        bottomSheetBinding.tvGender.text = animal.gender
         when (animal.gender) {
             "Male" -> {
-                binding.tvGender.background =
+                bottomSheetBinding.tvGender.background =
                     ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.male_background
                     )
-                binding.tvGender.setTextColor(
+                bottomSheetBinding.tvGender.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),
                         R.color.male_text_color
@@ -110,12 +117,12 @@ class AnimalDetailsFragment : Fragment() {
                 )
             }
             "Female" -> {
-                binding.tvGender.background =
+                bottomSheetBinding.tvGender.background =
                     ContextCompat.getDrawable(
                         requireContext(),
                         R.drawable.female_background
                     )
-                binding.tvGender.setTextColor(
+                bottomSheetBinding.tvGender.setTextColor(
                     ContextCompat.getColor(
                         requireContext(),
                         R.color.female_text_color
@@ -131,12 +138,12 @@ class AnimalDetailsFragment : Fragment() {
             Glide.with(requireContext())
                 .load(animal.organization.photo)
                 .placeholder(R.drawable.organization_title)
-                .into(binding.ivOrganization)
-            binding.tvOrganizationName.text = animal.organization.name
-            binding.tvOrganizationLocation.text = animal.location
+                .into(bottomSheetBinding.ivOrganization)
+            bottomSheetBinding.tvOrganizationName.text =
+                animal.organization.name
+            bottomSheetBinding.tvOrganizationLocation.text = animal.location
         } else {
-            println("kfkfkf")
-            binding.viewOrganization.visibility = View.GONE
+            bottomSheetBinding.viewOrganization.visibility = View.GONE
         }
     }
 }
