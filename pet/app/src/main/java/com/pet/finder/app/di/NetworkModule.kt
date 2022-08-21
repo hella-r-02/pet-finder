@@ -1,12 +1,12 @@
 package com.pet.finder.app.di
 
-import com.pet.finder.app.api.TokenAuthenticator
-import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSource
-import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSourceImpl
-import com.pet.finder.app.api.servcice.AnimalService
-import com.pet.finder.app.api.servcice.OrganizationService
-import com.pet.finder.app.api.servcice.SessionService
-import com.pet.finder.app.api.utils.BASE_URL
+import com.pet.finder.app.data.remote.TokenAuthenticator
+import com.pet.finder.app.data.remote.dataSource.RetrofitAnimalDataSource
+import com.pet.finder.app.data.remote.dataSource.RetrofitAnimalDataSourceImpl
+import com.pet.finder.app.data.remote.service.AnimalService
+import com.pet.finder.app.data.remote.service.OrganizationService
+import com.pet.finder.app.data.remote.service.SessionService
+import com.pet.finder.app.data.remote.utils.BASE_URL
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.json.Json
