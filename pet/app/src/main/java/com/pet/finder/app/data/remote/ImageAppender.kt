@@ -1,6 +1,6 @@
-package com.pet.finder.app.api
+package com.pet.finder.app.data.remote
 
-import com.pet.finder.app.api.model.PhotoResponse
+import com.pet.finder.app.data.remote.model.PhotoResponse
 
 class ImageAppender {
     fun buildUrl(photos: List<PhotoResponse>?): String? {

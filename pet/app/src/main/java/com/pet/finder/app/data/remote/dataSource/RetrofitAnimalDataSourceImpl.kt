@@ -1,10 +1,10 @@
-package com.pet.finder.app.api.dataSource
+package com.pet.finder.app.data.remote.dataSource
 
-import com.pet.finder.app.api.ImageAppender
-import com.pet.finder.app.api.model.AnimalDetailsResponse
-import com.pet.finder.app.api.model.BreedsResponse
-import com.pet.finder.app.api.servcice.AnimalService
-import com.pet.finder.app.api.servcice.OrganizationService
+import com.pet.finder.app.data.remote.ImageAppender
+import com.pet.finder.app.data.remote.model.AnimalDetailsResponse
+import com.pet.finder.app.data.remote.model.BreedsResponse
+import com.pet.finder.app.data.remote.service.AnimalService
+import com.pet.finder.app.data.remote.service.OrganizationService
 import com.pet.finder.app.data.model.*
 
 class RetrofitAnimalDataSourceImpl(

@@ -1,6 +1,6 @@
-package com.pet.finder.app.api.servcice
+package com.pet.finder.app.data.remote.service
 
-import com.pet.finder.app.api.model.OrganizationsDetailsResponse
+import com.pet.finder.app.data.remote.model.OrganizationsDetailsResponse
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path

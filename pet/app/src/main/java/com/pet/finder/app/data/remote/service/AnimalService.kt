@@ -1,7 +1,7 @@
-package com.pet.finder.app.api.servcice
+package com.pet.finder.app.data.remote.service
 
-import com.pet.finder.app.api.model.AnimalDetailsMainResponse
-import com.pet.finder.app.api.model.AnimalsResponse
+import com.pet.finder.app.data.remote.model.AnimalDetailsMainResponse
+import com.pet.finder.app.data.remote.model.AnimalsResponse
 import retrofit2.http.*
 
 interface AnimalService {

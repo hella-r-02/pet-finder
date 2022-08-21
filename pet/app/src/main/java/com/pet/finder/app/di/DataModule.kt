@@ -1,9 +1,6 @@
 package com.pet.finder.app.di
 
-import android.content.Context
-import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSource
-import com.pet.finder.app.api.session.SessionStorage
-import com.pet.finder.app.api.session.SessionStorageImpl
+import com.pet.finder.app.data.remote.dataSource.RetrofitAnimalDataSource
 import com.pet.finder.app.data.repository.AnimalRepositoryImpl
 import com.pet.finder.app.domain.AnimalRepository
 import dagger.Module

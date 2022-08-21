@@ -1,6 +1,6 @@
 package com.pet.finder.app.data.repository
 
-import com.pet.finder.app.api.dataSource.RetrofitAnimalDataSource
+import com.pet.finder.app.data.remote.dataSource.RetrofitAnimalDataSource
 import com.pet.finder.app.data.model.Animal
 import com.pet.finder.app.data.model.AnimalDetails
 import com.pet.finder.app.domain.AnimalRepository

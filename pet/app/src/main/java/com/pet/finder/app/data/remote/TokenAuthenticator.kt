@@ -1,6 +1,6 @@
-package com.pet.finder.app.api
+package com.pet.finder.app.data.remote
 
-import com.pet.finder.app.api.servcice.SessionService
+import com.pet.finder.app.data.remote.service.SessionService
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response

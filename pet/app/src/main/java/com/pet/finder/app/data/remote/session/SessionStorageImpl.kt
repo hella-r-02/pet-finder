@@ -1,4 +1,4 @@
-package com.pet.finder.app.api.session
+package com.pet.finder.app.data.remote.session
 
 import android.content.Context
 

@@ -1,4 +1,4 @@
-package com.pet.finder.app.api.model
+package com.pet.finder.app.data.remote.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
