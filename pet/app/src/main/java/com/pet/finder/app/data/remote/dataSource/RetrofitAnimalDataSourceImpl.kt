@@ -5,7 +5,7 @@ import com.pet.finder.app.data.remote.model.AnimalDetailsResponse
 import com.pet.finder.app.data.remote.model.BreedsResponse
 import com.pet.finder.app.data.remote.service.AnimalService
 import com.pet.finder.app.data.remote.service.OrganizationService
-import com.pet.finder.app.data.model.*
+import com.pet.finder.app.domain.model.*
 
 class RetrofitAnimalDataSourceImpl(
     private val animalService: AnimalService,

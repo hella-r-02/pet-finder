@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pet.finder.app.R
-import com.pet.finder.app.data.model.Details
+import com.pet.finder.app.domain.model.Details
 
 class DetailsAdapter : ListAdapter<Details, DetailsAdapter.DataViewHolder>(DiffCallback()) {
 

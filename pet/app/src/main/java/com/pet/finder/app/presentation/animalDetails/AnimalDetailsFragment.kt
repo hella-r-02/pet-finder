@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pet.finder.app.R
-import com.pet.finder.app.data.model.AnimalDetails
+import com.pet.finder.app.domain.model.AnimalDetails
 import com.pet.finder.app.databinding.AnimalDetailsBottomSheetBinding
 import com.pet.finder.app.databinding.AnimalDetailsMainBinding
 import com.pet.finder.app.databinding.FragmentAnimalDetailsBinding

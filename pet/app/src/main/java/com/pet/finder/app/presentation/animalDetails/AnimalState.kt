@@ -1,6 +1,6 @@
 package com.pet.finder.app.presentation.animalDetails
 
-import com.pet.finder.app.data.model.AnimalDetails
+import com.pet.finder.app.domain.model.AnimalDetails
 
 
 sealed class AnimalState {

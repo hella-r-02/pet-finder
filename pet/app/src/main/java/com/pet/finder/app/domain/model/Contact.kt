@@ -1,4 +1,4 @@
-package com.pet.finder.app.data.model
+package com.pet.finder.app.domain.model
 
 class Contact(
     val phone: String?,

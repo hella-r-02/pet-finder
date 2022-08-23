@@ -1,9 +1,9 @@
 package com.pet.finder.app.domain
 
-import com.pet.finder.app.data.model.Animal
-import com.pet.finder.app.data.model.AnimalDetails
+import com.pet.finder.app.domain.model.Animal
+import com.pet.finder.app.domain.model.AnimalDetails
 
 interface AnimalRepository {
    suspend fun getAnimals(): List<Animal>
-   suspend fun getAnimalById(id:Int):AnimalDetails
+   suspend fun getAnimalById(id:Int): AnimalDetails
 }

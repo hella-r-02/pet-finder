@@ -3,7 +3,7 @@ package com.pet.finder.app.presentation.animalList.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.pet.finder.app.data.model.Animal
+import com.pet.finder.app.domain.model.Animal
 import com.pet.finder.app.domain.AnimalRepository
 import kotlinx.coroutines.launch
 

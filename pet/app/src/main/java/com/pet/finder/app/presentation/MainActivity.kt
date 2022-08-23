@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.pet.finder.app.R
 import com.pet.finder.app.app.App
-import com.pet.finder.app.data.model.Animal
+import com.pet.finder.app.domain.model.Animal
 import com.pet.finder.app.presentation.animalDetails.AnimalDetailsFragment
 import com.pet.finder.app.presentation.animalDetails.viewmodel.AnimalDetailsViewModel
 import com.pet.finder.app.presentation.animalDetails.viewmodel.AnimalDetailsViewModelFactory

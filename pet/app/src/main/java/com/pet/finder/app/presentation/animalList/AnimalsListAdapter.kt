@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pet.finder.app.R
-import com.pet.finder.app.data.model.Animal
+import com.pet.finder.app.domain.model.Animal
 
 class AnimalsListAdapter(private val onClickCard: (item: Animal) -> Unit) :
     ListAdapter<Animal, AnimalsListAdapter.DataViewHolder>(DiffCallback()) {
