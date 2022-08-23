@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 class AnimalDetailsMainResponse(
     @SerialName("animal")
-    val animal: AnimalDetailsResponse
+    val animal: AnimalResponse
 )

@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity(), AnimalsListFragment.AnimalsListItemCli
         ).get(AnimalDetailsViewModel::class.java)
 
     override fun onAnimalSelected(animal: Animal) {
-        println("fkj")
         val bundle = Bundle()
         bundle.putInt("animal_id", animal.id)
         val fragment = AnimalDetailsFragment()

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pet.finder.app.R
-import com.pet.finder.app.domain.model.AnimalDetails
+import com.pet.finder.app.domain.model.Animal
 import com.pet.finder.app.databinding.AnimalDetailsBottomSheetBinding
 import com.pet.finder.app.databinding.AnimalDetailsMainBinding
 import com.pet.finder.app.databinding.FragmentAnimalDetailsBinding
@@ -33,7 +33,6 @@ class AnimalDetailsFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         animalDetailsViewModel = (activity as MainActivity).getAnimalDetailsViewModel()
-        //      binding = FragmentAnimalDetailsBinding.inflate(layoutInflater)
     }
 
     override fun onCreateView(
@@ -56,7 +55,7 @@ class AnimalDetailsFragment : Fragment() {
         animalDetailsViewModel.loadAnimal(animalId!!)
     }
 
-    private fun setAdapterForDetailsRecyclerView(animal: AnimalDetails) {
+    private fun setAdapterForDetailsRecyclerView(animal: Animal) {
         detailsAdapter = DetailsAdapter()
         detailsAdapter.submitList(animal.details)
         val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.VERTICAL, false)
@@ -65,7 +64,7 @@ class AnimalDetailsFragment : Fragment() {
         bottomSheetBinding.rvDetails.isNestedScrollingEnabled = false
     }
 
-    private fun setAdapterForTagsRecyclerView(animal: AnimalDetails) {
+    private fun setAdapterForTagsRecyclerView(animal: Animal) {
         tagsAdapter = TagsAdapter()
         tagsAdapter.submitList(animal.tags)
         val layoutManager = GridLayoutManager(requireContext(), 1, RecyclerView.HORIZONTAL, false)
@@ -85,7 +84,7 @@ class AnimalDetailsFragment : Fragment() {
         }
     }
 
-    private fun loadData(animal: AnimalDetails) {
+    private fun loadData(animal: Animal) {
         setAdapterForDetailsRecyclerView(animal)
         setAdapterForTagsRecyclerView(animal)
         Glide.with(requireContext())
@@ -133,7 +132,7 @@ class AnimalDetailsFragment : Fragment() {
         loadOrganizationInformation(animal)
     }
 
-    private fun loadOrganizationInformation(animal: AnimalDetails) {
+    private fun loadOrganizationInformation(animal: Animal) {
         if (animal.organization != null) {
             Glide.with(requireContext())
                 .load(animal.organization.photo)

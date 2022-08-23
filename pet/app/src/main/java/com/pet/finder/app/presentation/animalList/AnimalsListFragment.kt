@@ -9,8 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pet.finder.app.R
-import com.pet.finder.app.domain.model.Animal
 import com.pet.finder.app.databinding.FragmentAnimalsListBinding
+import com.pet.finder.app.domain.model.Animal
 import com.pet.finder.app.presentation.MainActivity
 import com.pet.finder.app.presentation.animalList.viewmodel.AnimalListViewModel
 

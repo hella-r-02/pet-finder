@@ -38,7 +38,7 @@ class AnimalsListAdapter(private val onClickCard: (item: Animal) -> Unit) :
         @SuppressLint("ResourceAsColor")
         fun onBind(animal: Animal, onClickCard: (item: Animal) -> Unit) {
             Glide.with(context)
-                .load(animal.photo)
+                .load(animal.photos)
                 .placeholder(R.drawable.ic_animal_placeholder)
                 .into(imageAnimal)
             animalName.text = animal.name
